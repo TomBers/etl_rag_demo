@@ -1,14 +1,16 @@
-# Welcome to Chainlit! 🚀🤖
+# Welcome to the AI Assistant for the **Energy Technology List (ETL)** 
 
-Hi there, Developer! 👋 We're excited to have you on board. Chainlit is a powerful tool designed to help you prototype, debug and share applications built on top of LLMs.
+Designed by **Assistant Engineering** [https://assistant.engineering](https://assistant.engineering), this chatbot demonstrates the use of custom knowledge sources in conjunction with a Large Language Model (LLM).
 
-## Useful Links 🔗
+**How It Works**
+We start by calling the ETL's Application Programming Interface (API) to collect their green energy product list. We vectorise this data and store it in a Pinecone database.  
 
-- **Documentation:** Get started with our comprehensive [Chainlit Documentation](https://docs.chainlit.io) 📚
-- **Discord Community:** Join our friendly [Chainlit Discord](https://discord.gg/k73SQ3FyUh) to ask questions, share your projects, and connect with other developers! 💬
+Then we use Retrieval Augmented Generation (RAG) to connect that database to the LLM as a specialised knowledge source. We also provide some custom instructions and tuning to the LLM.
 
-We can't wait to see what you create with Chainlit! Happy coding! 💻😊
+The result is a natural language interface that makes it easy to engage with and inquire about the 8,000 sustainable energy products in the ETL list.  We can do this sort of thing with many, many data sources. 🚀🤖
 
-## Welcome screen
+**About The ETL**
+[https://etl.energysecurity.gov.uk](https://etl.energysecurity.gov.uk)
+The Energy Technology List (ETL) is a UK government project aimed at helping businesses and the public sector to make greener energy choices. It's free to use and backed by the Government's Department for Energy Security and Net Zero.
 
-To modify the welcome screen, edit the `chainlit.md` file at the root of your project. If you do not want a welcome screen, just leave this file empty.
+The list functions as an easy-to-use procurement tool for energy managers, procurement professionals, facilities managers and a wide variety of other professions and organisations. It is recognised in various sustainability assessment processes including BREEAM and SKA rating.
