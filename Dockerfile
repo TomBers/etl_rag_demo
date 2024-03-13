@@ -16,6 +16,8 @@ COPY ./app.py ./app.py
 
 COPY ./.chainlit ./.chainlit
 
+COPY ./public ./public
+
 # FOR DEPLOYMENT
 # COPY ./.env ./.env
 # Set environment variables
