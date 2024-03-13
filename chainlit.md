@@ -1,9 +1,10 @@
-# Welcome to the AI Assistant for the **Energy Technology List (ETL)** 
+# AI Assistant for the **Energy Technology List (ETL)** 
+
 
 Designed by **Assistant Engineering** [https://assistant.engineering](https://assistant.engineering), this chatbot demonstrates the use of custom knowledge sources in conjunction with a Large Language Model (LLM).
 
 **How It Works**
-We start by calling the ETL's Application Programming Interface (API) to collect their green energy product list. We vectorise this data and store it in a Pinecone database.  
+We start by calling the ETL's Application Programming Interface (API) to collect their green energy product list. We vectorise this data and store it in a vector database.  
 
 Then we use Retrieval Augmented Generation (RAG) to connect that database to the LLM as a specialised knowledge source. We also provide some custom instructions and tuning to the LLM.
 
