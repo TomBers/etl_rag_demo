@@ -4,24 +4,32 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;1,100&display=swap');
 
 :root {
+
+    /* actual colors  */
+    --main-dark-blue: #060522; /* MJ background */
+    --sky-blue: #63B3ED; /* MJ hyperlink*/
+    --electric-blue: #4F46E5; /* MJ button */
+    --orange: #f86815; /* MJ button */
+    --green: #15b076; /* MJ button */
+    --white-grey: #CBD5E1; /* MJ text */
+    --white-lightBlue: #c8e0f4; /* mine */
+    --alt-dark: #0c1426; /* dark blue green MJ */
+    --alt-mid-blue: #202046; /* middle blue that I made */
+  
+    /* functional colors */
     --full-background: black;
-    --centre-background: #060522;
-    /* background of centre rectangle */
-    --highlight: #63B3ED;
-    /* border, headings and button-background */
-    --visited-link: #4F46E5;
-    /* visited link */
-    --emphasis-1: #c8e0f4;
-    /* href hover and buttons  */
-    --hover: #f86815;
-    /* --body-text: #fff;*/
-    --body-text: #CBD5E1;
-    --text-shadow: #c8e0f4;
-    /* not dialed-in yet */
-    --question-input-background: #fff;
+    --centre-background: var(--main-dark-blue); /* background of centre rectangle */
+    --body-text: var(--white-grey);
+    --emphasis-1: var(--white-lightBlue);
+    --highlight: var(--sky-blue); /* border, headings and underline on links */
+    --visited-link: var(--electric-blue);
+    --hover: var(--orange); /* href hover and buttons  */
+    --question-input-background: white;
     --chat-border: #ccc;
-    --message-human-color: #6C6F7D;
-    /* text in white box? */
+
+    /* For Chainlit */
+    --alt-dark: #0c1426; /*dark blue green fm Midjourney) */
+    --alt-mid-blue: #202046; /* middle blue that I made */
 }
 
 html {
@@ -30,7 +38,7 @@ html {
 
 body {
     /* font-size: 1.8rem; */
-    font-size: 1.0rem;
+    font-size: 0.9rem;
     line-height: 1.6;
     margin: auto;
     padding: 20px;
@@ -44,7 +52,7 @@ body {
     letter-spacing: 0.8px;
 }
 
-.css-12hxhao img[src$=".webp"] { #does nothing
+.css-12hxhao img[src$=".webp"] { /* does nothing */
     border: 20px solid red !important; 
     background-color:#63B3ED !important;
 }
@@ -57,7 +65,7 @@ body {
     color: var(--highlight) !important;
 }
 
-.css-xj3jj8 { /* the four sources that come with each response */
+.css-xj3jj8 { /* the four source links that come with each response */
     color: var(--highlight) !important;
 }
 
@@ -95,19 +103,74 @@ body {
 /* The box that contains the 'Assistant Engineering - ETL List' messages */
 .css-7kdxxp {
     background-color: #202046 !important;
+    background-color: var(--alt-dark) !important;
 }
 
-/* The 'Chat' button - Dark */
+/* The top 'Chat' button - Light */
 .css-pysqyp {
     background-color: var(--highlight) !important;
 }
+/*  Removed because these are not link so there shouldn't be hover function. But hover does work :)
+.css-pysqyp:hover  {
+    background-color: #ffffff !important;
+    color: var(--highlight) !important;
+    border: 2px solid var(--highlight)  !important;
+}
+*/
 
-.css-pysqyp:hover {
-    background-color: var(--hover) !important;
+/* The top 'Chat' button - Light */
+.css-10zz9h3 {
+    background-color: var(--highlight) !important;
+    color: #ffffff !important;
+}
+/*  Removed because these are not links so there shouldn't be hover function. But hover does work :)
+.css-10zz9h3:hover { 
+    background-color: #ffffff !important;
+    color: var(--highlight) !important;
+    border: 1px solid var(--highlight) !important;
+} */
+
+/* Logo Style */
+.css-12hxhao img[alt="logo"] {
+    max-height: 50px !important;
+    /* background-color: var(--highlight) !important; */
 }
 
+/* Readme Light and Dark */
+.css-i8ku01, .css-bydu06 {
+    font-family: "JetBrains Mono", monospace !important;
+    line-height: 1.4 !important;
+    letter-spacing: 0.8px;
+}
 
-/* Readme Light */
-.css-i8ku01 {
-    background-color: var(--hover) !important;
+/* Readme Dark */
+.css-bydu06 {
+    /* background-color: var(--alt-dark) !important; */
+    background-color: var(--centre-background) !important;
+    border-radius: 50px !important;
+    text-shadow: 0.5px 0.5px 0.5px #cccBC6 !important;
+
+    /* light blue box to match AE site */
+    /* 
+    border-width: 1.0vw !important;
+    border-style: solid !important;
+    border-color: var(--highlight) !important;
+    border-top-left-radius: 3.7vw !important;
+    border-top-right-radius: 3.7vw !important;
+    border-bottom-left-radius: 3.7vw !important;
+    border-bottom-right-radius: 3.7vw !important;
+    border-bottom-width: 4.5vh !important;
+    padding: 20px !important;
+    margin: 0 auto !important;
+    width: 100% !important; 
+    */
+}
+
+.css-bydu06 h1 {
+    color: var(--highlight) !important;
+    text-shadow: none !important;
+}
+
+.css-bydu06 a {
+    text-shadow: none !important;
 }
