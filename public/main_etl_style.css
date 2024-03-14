@@ -13,7 +13,7 @@
     --green: #15b076; /* MJ button */
     --white-grey: #CBD5E1; /* MJ text */
     --white-lightBlue: #c8e0f4; /* mine */
-    --alt-dark: #0c1426; /* dark blue green MJ */
+    --alt-dark-blue-green: #0c1426; /* dark blue green MJ */
     --alt-mid-blue: #202046; /* middle blue that I made */
   
     /* functional colors */
@@ -27,9 +27,6 @@
     --question-input-background: white;
     --chat-border: #ccc;
 
-    /* For Chainlit */
-    --alt-dark: #0c1426; /*dark blue green fm Midjourney) */
-    --alt-mid-blue: #202046; /* middle blue that I made */
 }
 
 html {
@@ -99,24 +96,15 @@ body {
     text-decoration-line: none;
 }
 
-
-/* The box that contains the 'Assistant Engineering - ETL List' messages */
+/* The Dark version box that contains the 'Assistant Engineering - ETL List' messages */
 .css-7kdxxp {
-    background-color: #202046 !important;
-    background-color: var(--alt-dark) !important;
+    background-color: var(--alt-dark-blue-green) !important;
 }
 
-/* The top 'Chat' button - Light */
+/* The top 'Chat' button - Dark */
 .css-pysqyp {
     background-color: var(--highlight) !important;
 }
-/*  Removed because these are not link so there shouldn't be hover function. But hover does work :)
-.css-pysqyp:hover  {
-    background-color: #ffffff !important;
-    color: var(--highlight) !important;
-    border: 2px solid var(--highlight)  !important;
-}
-*/
 
 /* The top 'Chat' button - Light */
 .css-10zz9h3 {
@@ -133,7 +121,6 @@ body {
 /* Logo Style */
 .css-12hxhao img[alt="logo"] {
     max-height: 50px !important;
-    /* background-color: var(--highlight) !important; */
 }
 
 /* Readme Light and Dark */
@@ -145,12 +132,11 @@ body {
 
 /* Readme Dark */
 .css-bydu06 {
-    /* background-color: var(--alt-dark) !important; */
     background-color: var(--centre-background) !important;
     border-radius: 50px !important;
     text-shadow: 0.5px 0.5px 0.5px #cccBC6 !important;
 
-    /* light blue box to match AE site */
+    /* light blue border box to match AE site */
     /* 
     border-width: 1.0vw !important;
     border-style: solid !important;
