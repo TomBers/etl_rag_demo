@@ -1,0 +1,932 @@
+@charset "UTF-8";
+
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;1,100&display=swap');
+
+:root {
+    --full-background: black;
+    --centre-background: #060522;
+    /* background of centre rectangle */
+    --highlight: #63B3ED;
+    /* border, headings and button-background */
+    --visited-link: #4F46E5;
+    /* visited link */
+    --emphasis-1: #c8e0f4;
+    /* href hover and buttons  */
+    --hover: #f86815;
+    /* --body-text: #fff;*/
+    --body-text: #CBD5E1;
+    --text-shadow: #c8e0f4;
+    /* not dialed-in yet */
+    --question-input-background: #fff;
+    --chat-border: #ccc;
+    --message-human-color: #6C6F7D;
+    /* text in white box? */
+}
+
+html {
+    font-size: 62.5%;
+}
+
+/* Apply 'greycliff-cf' to body text */
+body {
+    font-size: 1.8rem;
+    line-height: 1.618;
+    margin: auto;
+    padding: 20px;
+    /* font-family: 'greycliff-cf', sans-serif; */
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 200;
+    font-style: normal;
+    max-width: 100%;
+    background-color: var(--full-background);
+    color: var(--body-text);
+    letter-spacing: 0.8px;
+}
+
+
+/*  :::::::::::::: NAVIGATION ::::::::::::: */
+header {
+    display: flex;
+    align-items: center;
+    position: relative; /* Ensures absolute positioning works within the header */
+    width: 100%;
+    margin-left: auto; /* Center the header on the page */
+    margin-right: auto; /* Center the header on the page */
+    justify-content: space-between; /* This separates the logo and nav */
+    padding: 0 20px;
+    height: 90px;
+    background-color: var(--highlight);
+    max-width: 1200px; /* Set the max-width to match the 'mainbox' width */
+    border-top-left-radius: 3.7vw;
+    border-top-right-radius: 3.7vw;
+    box-sizing: border-box; 
+}
+
+.logo {
+    height: auto; /* Maintain aspect ratio */
+    width: calc(50px + 15vw); /* Adjust based on your preference */
+    max-width: 225px; /* Prevents the logo from becoming too large */
+    min-width: 200px; /* Prevents the logo from becoming too small */
+    position: relative; /* Adjust if necessary, depending on your layout */
+    margin: auto 0; /* This can help center vertically if other methods fail */
+}
+
+.challenge-logo {
+    margin-top: 8px;
+}
+
+.logo-text {
+    color: #fff;
+    font-weight: bold;
+    margin-left: 150px; /* Adjust this value so the text starts to the right of the logo */
+    letter-spacing: 4px;
+}
+
+/* Ensure nav and other elements are adjusted accordingly */
+nav {
+    margin-left: auto; /* Pushes the nav to the right */
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px; /* Adjust padding to match the button size you want */
+    margin: 0 5px; /* Space between buttons */
+    font-size: 1em; /* Adjust font size as needed */
+    font-weight: bold; /* Makes the text bold */
+    color: white; /* Text color */
+    background-color: #007bff; /* Adjust to match your desired button color */
+    border: none; /* No border for flat button style */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center;
+    text-decoration: none; /* Removes underline from links */
+    cursor: pointer; /* Changes cursor to indicate button functionality */
+    transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+    box-shadow: 0 4px 8px var(--visited-link); /* Horizontal offset, vertical offset, blur radius, color */
+}
+
+.demo-button {
+    background-color: white; /* Demo button color */
+    color: black; /* Demo button text color */
+    border: 3px solid black; /* Demo button border */
+   /*  box-shadow: 5px 4px 8px #4F46E5; Thick drop shadow with specified color */
+    box-shadow: 5px 5px 1px black; /* Thick drop shadow with specified color */
+}
+
+.contest-button {
+    background-color: var(--visited-link); /* Contest button color */
+    color: white; /* Contest button text color */
+    border: 3px solid black; /* Demo button border */
+    box-shadow: 4px 5px 1px black; /* Thick drop shadow with specified color */
+}
+
+.button:hover {
+    background-color: #15b076; /* Darker shade on hover for interactive feedback */
+}
+
+.demo-button:hover {
+   /*  background-color: #f23753; */
+    background-color: var(--hover);
+}
+
+/* Hamburger Menu Button */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px; /* Must have padding to appear on phone screen! */
+    /*background-color: #fff;   Make the button background explicitly white for testing */
+    /*border: 1px solid #ccc; /* Add a border to make the button more visible */
+}
+
+.hamburger-menu span {
+    display: block;
+    height: 3px;
+    width: 30px;
+    background: var(--centre-background); /* Adjust color as needed */
+    background-color: #333; /* Color of the line, ensure it contrasts with the background */
+    margin: 5px 0; /* Spacing between the lines */
+    
+ 
+}
+
+/* Navigation Menu */
+.nav-menu {
+    display: flex; /* or 'block', depending on your layout */
+    justify-content: center; /* Adjust as needed */
+    align-items: center; /* For vertical alignment */
+}
+
+/* When the menu is active */
+.nav-menu.active {
+    display: block;
+    /* Adjustments for when the menu is visible */
+}
+
+.close-btn {
+    display: none; 
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+/* */
+
+
+
+/*  :::::::::::::: LINKS ::::::::::::: */
+.mainbox a:link,
+.mainbox a:visited {
+    color: inherit;
+    /* Keeps the text color unchanged */
+    /*  color: var(--highlight); */
+    text-decoration: underline;
+    text-decoration-color: var(--highlight);
+    /* Sets the underline color */
+    text-decoration-thickness: 1px;
+    /* Optional: Adjusts the thickness of the underline */
+    text-underline-offset: 4px;
+    text-underline-position: from-font;
+    text-decoration-style: dotted;
+}
+
+.mainbox a:hover {
+    color: var(--hover);
+    /* Changes text color on hover */
+    text-decoration-color: var(--hover);
+    /* Ensures the underline color matches the text color on hover */
+    text-decoration-line: none;
+}
+
+
+h1 {
+    font-size: 2.35em;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 200;
+    font-style: normal;
+    color: var(--highlight);
+    /* text-shadow: 0.5px 0.5px 0.5px var(--text-shadow); */
+
+    line-height: 1.1;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    /* font-size: 1.35em; */
+    font-size: 1.4em;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 200;
+    font-style: normal;
+    color: var(--highlight);
+    line-height: 0.8;
+    margin-bottom: 12px;
+}
+
+h3 {
+    font-size: 1.1em;
+    /* color: var(--emphasis-1); */
+    margin-bottom: 0px;
+    margin-top: 20px;
+    font-family: "JetBrains Mono", monospace;
+  }
+
+hr {
+    height: 1px;
+    background-color: var(--highlight);
+    /* background-color: #c8e0f4; */
+}
+
+.bold-response {
+    /* what is this for? */
+    color: red;
+}
+
+
+.mainbox {
+    /* surrounding colored box    */
+    border-width: 1.0vw;
+    border-style: solid;
+    border-color: var(--highlight);
+    border-top-left-radius: 0vw;
+    /* curves the box edges */
+    border-top-right-radius: 0vw;
+    /* curves the box edges */
+    border-bottom-left-radius: 3.7vw;
+    /* curves the box edges */
+    border-bottom-right-radius: 3.7vw;
+    /* curves the box edges */
+    /* thickness of border */
+    border-bottom-width: 4.5vh;
+    border-top-width: 0px;
+    /* border-top-width: 0px; */
+    background-color: var(--centre-background);
+    padding: 0px;
+    margin: 0 auto;
+    width: 100%;
+    /* Adjust width as needed */
+    box-sizing: border-box;
+    /* To include padding and border in the element's total width and height */
+    max-width: 1200px;
+    position: relative;
+}
+
+
+.text_gradient {
+    color: transparent; /* Fallback for browsers that don't support background-clip */
+    background: linear-gradient(0deg, 
+    var(--visited-link), 
+    var(--highlight) 50%, 
+    var(--emphasis-1) 66%, 
+    var(--visited-link) 100%);
+    -webkit-text-fill-color: transparent; /* WebKit browsers */
+    -webkit-background-clip: text;
+    background-clip: text; /* Non-prefixed, for broader compatibility */
+    font-weight: 300;
+  }
+
+#container {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+
+#chat-window {
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+    max-height: 500px;
+    /* Adjust this value to your preference */
+    overflow-y: auto;
+    border: 1px solid var(--chat-border);
+    padding: 10px;
+    border-radius: 1.2vw;
+    /* curves the box edges */
+
+    font-size: 1.7rem;
+    line-height: 1.4;
+    font-weight: 100;
+    letter-spacing: 0.1px;
+    font-optical-sizing: auto;
+
+}
+
+#form-inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.a {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+}
+
+.b {
+    display: flex;
+    margin-left: 10px;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+}
+
+#question-input {
+    flex-grow: 1;
+    width: 90%;
+    margin: 0px !important;
+    padding: 8px;
+    /* Adjust the spacing between the textarea and the button */
+    background-color: var(--question-input-background);
+    color: var(--centre-background);
+    border-radius: 0.8vw;
+    /* curves the box edges */
+}
+
+#submit-question {
+    font-size: 1.2em;
+    white-space: nowrap;
+    background-color: var(--highlight);
+    color: var(--emphasis-1);
+    display: flex !important;
+    align-self: center;
+    border: none;
+    border-radius: 10px;
+    /* Additional styling for the button if needed */
+}
+
+#submit-question:hover {
+    background-color: var(--emphasis-1);
+    color: var(--highlight);
+}
+
+#continue-button {
+    font-size: 1.2em;
+    white-space: nowrap;
+    padding: 5px 10px;
+    background-color: var(--highlight);
+    color: var(--emphasis-1);
+    display: flex !important;
+    align-self: center;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#continue-button:hover {
+    background-color: var(--emphasis-1);
+    color: var(--highlight);
+}
+
+#recaptureBtn {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    background: transparent;
+    color: white;
+    border: none;
+    width: fit-content;
+}
+
+/* #tips-button {
+    font-size: 1.2em;
+    white-space: nowrap;
+    padding: 5px 10px;
+    background-color: var(--emphasis-1);
+    color: var(--highlight);
+    display: flex !important;
+    align-self: flex-start;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#tips-button:hover {
+    background-color: var(--highlight);
+    color: var(--emphasis-1);
+} */
+
+.tag-line {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.top-right-image {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    width: 110px;
+    /* Adjust the width as needed */
+    height: auto;
+    /* Maintain aspect ratio */
+}
+
+/* :::::::::::::::::::  Founder Block :::::::::::::::::::  */
+.founder-div {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between
+}
+
+.founder-description {
+    flex: 2;
+}
+
+.founder-img-div{
+    flex: 1; 
+    text-align: right; 
+    padding-left: 10px; 
+    min-width: 250px;
+}
+
+.founder-img {
+    width: 65%; 
+    height: auto; 
+    max-width: 256px;
+}
+
+.founders-block {
+    padding-bottom: 25px;
+}
+
+.founder-description .icon-link {
+    text-decoration: none !important;
+    /* Removes the underline But not sure this is still needed*/
+}
+/* end: founders */
+
+.message.human {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    text-align: right;
+    color: var(--message-human-color);
+}
+
+.message.ai {
+    display: inline-block;
+
+    text-align: left;
+}
+
+.caps {
+    text-transform: capitalize;
+}
+
+.htmx-indicator {
+    opacity: 0;
+    transition: opacity 500ms ease-in;
+}
+
+.htmx-send.htmx-indicator {
+    opacity: 1
+}
+
+iframe {
+    width: 100%;
+    height: 450px;
+}
+
+
+/*    TIPS formatting, also used for many other <ul>s  */
+.tips-section {
+    margin-bottom: 20px;
+}
+
+.tips-header {
+    font-size: 1.5em;
+    color: var(--highlight);
+    margin-bottom: 5px;
+    /* text-shadow: 0.5px 0.5px 0.5px var(--text-shadow); */
+}
+
+.tips-list {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 30px;
+}
+
+.tips-list li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    text-indent: -1.3em;
+    /* Pulls the first line to the left */
+    padding-left: 1.3em;
+    /* Adds padding to the left of the list item, affecting lines after the first */
+
+}
+
+.tips-list li:before {
+    content: "• ";
+    color: var(--highlight);
+    /* Bullet color */
+    font-weight: bold;
+}
+
+.tips-highlight {
+    font-style: italic;
+    color: var(--emphasis-1);
+}
+
+.notice-me {
+    font-style: italic;
+    font-family: 'Arial', sans-serif;
+    color: var(--emphasis-1);
+}
+
+
+.service-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* Adjust the space between the image and text */
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.service-item .service-text {
+    order: 1;
+    /* Ensures the text appears first */
+    text-align: left;
+}
+
+.service-item .service-image {
+    order: 2;
+    /* Ensures the image appears second (to the right of the text) */
+    width: 40%;
+    /* Control the size of the image */
+    height: auto;
+    /* Maintain the aspect ratio */
+    max-width: 512px;
+}
+
+.case-studies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.case-study-col {
+    width: 30%;
+    /* Adjust the width as needed */
+    margin-bottom: 20px;
+}
+
+.case-studies-hr {
+    display: none;
+    /* Hide the HR by default */
+}
+
+.click-header {
+    cursor: pointer;
+    color: white;
+}
+
+.click-content {
+    display: none;
+    padding: 0px;
+}
+
+.plus-symbol {
+    color: var(--highlight);
+}
+
+.my-strong {
+    font-weight: 800;
+}
+
+.challenge_terms_link{
+    margin-top:100px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding: 10px; */
+    padding-top: 100px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    /* Change to column to stack address and columns */
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.footer-address {
+    width: 100%;
+    /* Ensure it spans the full width */
+    margin-bottom: 20px;
+    /* Adjust spacing as needed */
+}
+
+.footer-columns {
+    display: flex;
+    flex-direction: row;
+    /* Start with row direction for desktop */
+    justify-content: space-between;
+    width: 80%;
+}
+
+.footer-column {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 10px;
+    /* Add some spacing between columns */
+}
+
+.footer-link {
+    margin-bottom: 10px;
+    color: var(--highlight);
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.address-block,
+.email-block,
+.copyright-block {
+    display: inline;
+    white-space: nowrap;
+    /* Prevents breaking inside the span */
+}
+
+.dev-portal-button {
+    background-color: white; 
+    color: black; /* button text color */
+    border: 3px solid black; /* button border */
+   /*  box-shadow: 5px 4px 8px #4F46E5; Thick drop shadow with specified color */
+    box-shadow: 4px 3px 2px  var(--highlight); /* Thick drop shadow with specified color */
+    display: inline-block; /* This makes the element only as wide as its content */
+    width: auto; /* Automatically adjusts the width to fit the content */
+    padding: 10px 20px; /* Adjust padding as needed */
+    max-width: max-content; /* Ensures the button's width is only as wide as its content */
+}
+
+.dev-portal-button:hover {
+    /*  background-color: #f23753; */
+     background-color: var(--hover);
+     box-shadow: 4px 3px 2px  white; /* Thick drop shadow with specified color */
+ }
+
+/* ::::::::: RESPONSIVE :::::::: */
+
+
+@media (max-width: 1302px) {
+    .homepage-headline-h1 {
+        font-size: 2.1em;
+    }
+}
+
+@media (max-width: 1125px) {
+    .homepage-headline-h1 {
+        font-size: 1.9em;
+    }
+
+    .case-study-col {
+        width: 100%;
+    }
+
+    .case-studies-hr {
+        display: block;
+        /* Show the <hr> */
+    }
+}
+
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 2.1em;
+    }
+
+    .homepage-headline-h1 {
+        font-size: 1.7em;
+    }
+}
+
+@media (max-width: 948px) {
+    h1 {
+        font-size: 1.9em;
+    }
+
+    .homepage-headline-h1 {
+        font-size: 2.1em;
+    }
+
+    .founder-div {
+        flex-direction: column;
+    }
+
+    .founder-img-div {
+        text-align: center;
+        /* Centers the image within the div */
+    }
+
+    .founder-img {
+        display: block;
+        /* Makes the image a block-level element */
+        margin: 0 auto;
+        /* Centers the block-level image horizontally within its container */
+        max-width: 100%;
+        /* Ensures the image is not wider than its container */
+        height: auto;
+        /* Maintains the aspect ratio of the image */
+    }
+
+    .address-block,
+    .email-block,
+    .copyright-block {
+        display: block;
+        /* Each element takes up a full line */
+        margin-bottom: 5px;
+        /* Adds some space between the elements */
+        white-space: normal;
+        /* Allows normal text wrapping */
+    }
+
+    .footer-address {
+        text-align: center;
+        /* Optionally center the text on small screens */
+    }
+
+    .pipe {
+        display: none;
+        /* Hides the pipe on screens 600px wide or smaller */
+    }
+}
+
+@media (max-width: 900px) {
+    body {
+        padding: 2px;
+        /* background-color: red; */
+    }
+
+    h2 {
+        line-height: 1.5 !important;
+        /* Slightly increased line height for better readability */
+        font-size: 2em;
+        /* Adjusted font size for better fit */
+        margin-top: 0.5em;
+        /* Adds space above the heading */
+        margin-bottom: 0.5em;
+        /* Adds space below the heading */
+        /* color: green; */
+    }
+
+    #form-inputs {
+        flex-direction: column;
+        width: 100%;
+        /* Stack elements vertically on small screens */
+    }
+
+    .a {
+        width: 100%;
+        /* Make the textarea take up the full width */
+    }
+
+    .b {
+        margin-top: 10px;
+        margin-left: 0px;
+        /* Make the button take up the full width */
+    }
+
+    #submit-question {
+        margin-top: 10px;
+        /* Add some space between the textarea and the button */
+    }
+
+    .mainbox {
+        border-width: 0.5vw;
+        /* border thickness */
+        border-bottom-width: 2.25vh;
+        /* border thickness */
+        border-bottom-left-radius: 1.85vw;
+        /* curves the box edges */
+        border-bottom-right-radius: 1.85vw;
+        /* curves the box edges */
+        width: 100%;
+    }
+
+    .text_gradient {
+        display: block;
+      }
+
+    .top-right-image {
+        /*old */
+        top: 2px;
+        right: 5px;
+        width: 70px;
+        /* Adjust the width as needed */
+    }
+
+    .service-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .service-image {
+        width: 80%;
+        /* Larger size for smaller screens, adjust as needed */
+        max-width: 512px;
+        /* Ensure the image is not larger than its original size */
+        min-width: 300px;
+        margin-bottom: 20px;
+        /* Space between the image and text */
+    }
+
+    .footer-columns {
+        flex-direction: column;
+        /* Change to column to stack the columns on smaller screens */
+        align-items: center;
+    }
+
+    .footer-column {
+        align-items: center;
+        margin: 10px 0;
+        /* Adjust spacing for stacked layout */
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* ::::::: Navigation */
+    .nav-menu {
+        display: none; /* Hide the nav-menu by default on smaller screens */
+        position: fixed;
+        width: 250px; /* Adjust based on content */
+        height: 100%;
+        left: -250px; /* Start off-screen */
+        top: 0;
+        background: #333; /* Adjust background color as needed */
+        transition: left 0.3s;
+        z-index: 1000;
+        flex-direction: column; /* Stack items vertically */
+        justify-content: start; /* Adjust as needed for your layout */
+        padding-top: 20px; /* Add padding at the top */
+    }
+
+    .nav-menu.active {
+        display: flex; /* Show the nav-menu when active */
+        left: 0; /* Slide in */
+    }
+
+    .close-btn {
+        display: block;
+    }
+
+    .nav-menu.active .button {
+        width: 70%; /* Adjust the width as needed */
+        margin: 10px auto; /* Center the buttons and add some margin */
+        display: block; /* Stack the buttons vertically */
+        margin-top: 50px;
+    }
+
+    .nav-menu.active .demo-button {
+        margin-top: 50px; /* Adds space above the Demo button */
+    }
+
+    .hamburger-menu {
+        display: block; /* Ensure the hamburger menu is visible on smaller screens */
+        width: 30px; /* Ensure it has a width */
+        height: 25px; /* Ensure it has a height */
+    }
+}
+
+
+@media (max-width: 684px) {
+    body {
+        font-size: 1.53rem;
+    }
+}
+
+@media (max-width: 382px) {
+    body {
+        font-size: 1.35rem;
+    }
+}
+

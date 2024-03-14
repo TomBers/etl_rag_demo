@@ -22,7 +22,9 @@ EMBEDDING_MODEL_NAME = "text-embedding-3-small"
 
 embeddings = OpenAIEmbeddings(model=EMBEDDING_MODEL_NAME)
 
-welcome_message = "Looking to purchase energy efficient products or get impartial advice on making energy savings?  Ask anything about the UK Energy Technology List (ETL), one of the world\\'s largest databases of energy-saving technology. Includes sustainability information on 8,000 tested and assessed energy efficient products, including boilers, electric motors, air conditioning and refrigeration equipment."
+# welcome_message = "Looking to purchase energy efficient products or get impartial advice on making energy savings?  Ask anything about the UK Energy Technology List (ETL), one of the world\\'s largest databases of energy-saving technology. Includes sustainability information on 8,000 tested and assessed energy efficient products, including boilers, electric motors, air conditioning and refrigeration equipment."
+welcome_message = """Looking to purchase energy efficient products or get impartial advice on making energy savings?  
+Ask anything about the [UK Energy Technology List (ETL)](https://etl.energysecurity.gov.uk), one of the world's largest databases of energy-saving technology. Includes sustainability information on 8,000 tested and assessed energy efficient products, including boilers, electric motors, air conditioning and refrigeration equipment."""
 
 @cl.on_chat_start
 async def start():

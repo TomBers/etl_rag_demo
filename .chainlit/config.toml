@@ -39,13 +39,13 @@ multi_modal = true
 
 [UI]
 # Name of the app and chatbot.
-name = "Assistant Engineering"
+name = "Assistant Engineering - ETL List"
 
 # Show the readme while the thread is empty.
 show_readme_as_default = false
 
 # Description of the app and chatbot. This is used for HTML tags.
-# description = ""
+description = "Looking to purchase energy efficient products or get impartial advice on making energy savings? Ask anything about the UK Energy Technology List (ETL), one of the world's largest databases of energy-saving technology. Includes sustainability information on 8,000 tested and assessed energy efficient products, including boilers, electric motors, air conditioning and refrigeration equipment."
 
 # Large size content are by default collapsed for a cleaner ui
 default_collapse_content = true
@@ -61,18 +61,18 @@ hide_cot = false
 
 # Specify a CSS file that can be used to customize the user interface.
 # The CSS file can be served from the public directory or via an external link.
-# custom_css = "/public/test.css"
+custom_css = "./public/main_etl_style.css"
 
 # Specify a Javascript file that can be used to customize the user interface.
 # The Javascript file can be served from the public directory.
 # custom_js = "/public/test.js"
 
 # Specify a custom font url.
-# custom_font = "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+custom_font="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
 
 # Override default MUI light theme. (Check theme.ts)
 [UI.theme]
-    #font_family = "Inter, sans-serif"
+    font_family = "JetBrains Mono, monospace"
 [UI.theme.light]
     #background = "#FAFAFA"
     #paper = "#FFFFFF"
@@ -81,16 +81,22 @@ hide_cot = false
         #main = "#F80061"
         #dark = "#980039"
         #light = "#FFE7EB"
+    main = "#63B3ED" #sky blue highlight
 
 # Override default MUI dark theme. (Check theme.ts)
 [UI.theme.dark]
-    #background = "#FAFAFA"
-    #paper = "#FFFFFF"
+    background = "#060522"
+    paper = "#0c1426"
+    font_family = "JetBrains Mono, monospace"
 
     [UI.theme.dark.primary]
         #main = "#F80061"
         #dark = "#980039"
         #light = "#FFE7EB"
+
+    main = "#63B3ED" #sky blue highlight
+    dark = "#FFFF00" #yellow
+    light = "#FFC0CB" #pink
 
 
 [meta]
