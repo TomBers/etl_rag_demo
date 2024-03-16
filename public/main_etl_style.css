@@ -152,6 +152,8 @@ body {
     */
 }
 
+
+/* Read Me centre page text */
 .css-bydu06 h1 {
     color: var(--highlight) !important;
     text-shadow: none !important;
@@ -159,4 +161,9 @@ body {
 
 .css-bydu06 a {
     text-shadow: none !important;
+}
+
+/* Top Nav  */
+.css-1dn07nw {
+    background-color: var(--centre-background) !important;
 }
