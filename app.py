@@ -5,6 +5,7 @@ from langchain.vectorstores.pinecone import Pinecone as PineconeVectorStore
 from langchain.chains import ConversationalRetrievalChain
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain.memory import ChatMessageHistory, ConversationBufferMemory
+from langchain.prompts import SystemMessagePromptTemplate, HumanMessagePromptTemplate, ChatPromptTemplate
 from langchain.docstore.document import Document
 from pinecone import Pinecone
 import chainlit as cl
@@ -44,11 +45,27 @@ async def start():
         chat_memory=message_history,
         return_messages=True,
     )
+    
+        
+    general_system_template = (r""" 
+        *** REED EDIT HERE ***.
+        ----
+        {context}
+        ----
+        """)
+    
+    general_user_template = "Question:```{question}```"
+    messages = [
+                SystemMessagePromptTemplate.from_template(general_system_template),
+                HumanMessagePromptTemplate.from_template(general_user_template)
+    ]
+    qa_prompt = ChatPromptTemplate.from_messages( messages )
 
     chain = ConversationalRetrievalChain.from_llm(
         ChatOpenAI(model_name="gpt-4-0125-preview", temperature=0, streaming=True),
         chain_type="stuff",
         retriever=docsearch.as_retriever(),
+        combine_docs_chain_kwargs={"prompt": qa_prompt},
         memory=memory,
         return_source_documents=True,
     )
@@ -57,6 +74,9 @@ async def start():
 
 @cl.on_message
 async def main(message: cl.Message):
+    msg = cl.Message(content="")
+    await msg.send()
+    
     chain = cl.user_session.get("chain")  # type: ConversationalRetrievalChain
 
     cb = cl.AsyncLangchainCallbackHandler()
