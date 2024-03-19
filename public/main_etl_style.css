@@ -1,0 +1,182 @@
+@charset "UTF-8";
+
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;1,100&display=swap');
+
+:root {
+
+    /* actual colors  */
+    --main-dark-blue: #060522;
+    /* MJ background */
+    --sky-blue: #63B3ED;
+    /* MJ hyperlink*/
+    --electric-blue: #4F46E5;
+    /* MJ button */
+    --orange: #f86815;
+    /* MJ button */
+    --green: #15b076;
+    /* MJ button */
+    --white-grey: #CBD5E1;
+    /* MJ text */
+    --white-lightBlue: #c8e0f4;
+    /* mine */
+    --alt-dark-blue-green: #0c1426;
+    /* dark blue green MJ */
+    --alt-mid-blue: #202046;
+    /* middle blue that I made */
+
+    /* functional colors */
+    --full-background: black;
+    --centre-background: var(--main-dark-blue);
+    /* background of centre rectangle */
+    --body-text: var(--white-grey);
+    --emphasis-1: var(--white-lightBlue);
+    --highlight: var(--sky-blue);
+    /* border, headings and underline on links */
+    --visited-link: var(--electric-blue);
+    --hover: var(--orange);
+    /* href hover and buttons  */
+    --question-input-background: white;
+    --chat-border: #ccc;
+
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    /* font-size: 1.8rem; */
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: auto;
+    padding: 20px;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 200;
+    font-style: normal;
+    max-width: 100%;
+    /* background-color: var(--full-background)  */
+    background-color: var(--centre-background);
+    color: var(--body-text);
+    letter-spacing: 0.8px;
+}
+
+.css-12hxhao img[src$=".webp"] {
+    /* does nothing */
+    border: 20px solid red !important;
+    background-color: #63B3ED !important;
+}
+
+.css-oqbl9x {
+    /* changes the color of the circle around the 'A' next to 'Assistant Engineering - ETL List' */
+    background-color: #63B3ED !important;
+}
+
+.css-v0j7yr {
+    /* the 'UK Energy Technology List (ETL)' link in the intro message.  I can't make the underline change separately */
+    color: var(--highlight) !important;
+}
+
+.css-xj3jj8 {
+    /* the four source links that come with each response */
+    color: var(--highlight) !important;
+}
+
+.css-xj3jj8:hover {
+    /* does nothing */
+    text-decoration-color: var(--highlight) !important;
+}
+
+
+/*  :::::::::::::: LINKS ::::::::::::: These Do Nothing  ?   */
+.css-v0j7yr a:link,
+.css-v0j7yr a:visited {
+    color: inherit;
+    color: #63B3ED !important;
+    /* Keeps the text color unchanged */
+    /*  color: var(--highlight); */
+    text-decoration: underline !important;
+    text-decoration-color: var(--highlight) !important;
+    /* Sets the underline color */
+    text-decoration-thickness: 1px !important;
+    /* Optional: Adjusts the thickness of the underline */
+    text-underline-offset: 4px !important;
+    text-underline-position: from-font !important;
+    text-decoration-style: wavy !important;
+}
+
+.css-v0j7yr a:hover {
+    color: var(--hover);
+    /* Changes text color on hover */
+    text-decoration-color: var(--hover);
+    /* Ensures the underline color matches the text color on hover */
+    text-decoration-line: none;
+}
+
+/* The Dark version box that contains the 'Assistant Engineering - ETL List' messages */
+.css-7kdxxp {
+    background-color: var(--alt-dark-blue-green) !important;
+}
+
+/* The top 'Chat' button - Dark */
+.css-pysqyp {
+    background-color: var(--highlight) !important;
+}
+
+/* The top 'Chat' button - Light */
+.css-10zz9h3 {
+    background-color: var(--highlight) !important;
+    color: #ffffff !important;
+}
+
+
+/* Logo Style */
+.css-12hxhao img[alt="logo"] {
+    max-height: 50px !important;
+}
+
+/* Readme Light and Dark */
+.css-i8ku01,
+.css-bydu06 {
+    font-family: "JetBrains Mono", monospace !important;
+    line-height: 1.4 !important;
+    letter-spacing: 0.8px;
+}
+
+/* Readme Dark */
+.css-bydu06 {
+    background-color: var(--centre-background) !important;
+    border-radius: 50px !important;
+    text-shadow: 0.5px 0.5px 0.5px #cccBC6 !important;
+
+    /* light blue border box to match AE site */
+    /* 
+    border-width: 1.0vw !important;
+    border-style: solid !important;
+    border-color: var(--highlight) !important;
+    border-top-left-radius: 3.7vw !important;
+    border-top-right-radius: 3.7vw !important;
+    border-bottom-left-radius: 3.7vw !important;
+    border-bottom-right-radius: 3.7vw !important;
+    border-bottom-width: 4.5vh !important;
+    padding: 20px !important;
+    margin: 0 auto !important;
+    width: 100% !important; 
+    */
+}
+
+
+/* Read Me centre page text */
+.css-bydu06 h1 {
+    color: var(--highlight) !important;
+    text-shadow: none !important;
+}
+
+.css-bydu06 a {
+    text-shadow: none !important;
+}
+
+/* Top Nav  */
+.css-1dn07nw {
+    background-color: var(--centre-background) !important;
+}

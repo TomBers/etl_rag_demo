@@ -50,7 +50,7 @@
                 },
                 "inputBox": {
                     "input": {
-                        "placeholder": "Type your message here..."
+                        "placeholder": "Ask questions about the Energy Technology List..."
                     },
                     "speechButton": {
                         "start": "Start recording",
@@ -64,7 +64,7 @@
                         "attachFiles": "Attach files"
                     },
                     "waterMark": {
-                        "text": "Built with"
+                        "text": "Built by Assistant Engineering with"
                     }
                 },
                 "Messages": {
