@@ -1,8 +1,9 @@
 import json
 
-def extract_products():
+def extract_products(doc):
     # Read the data from the file
-    with open('../../full_energy_technology_list.json', 'r') as file:
+    filename = f"etl_data_{doc}.json"
+    with open(filename, 'r') as file:
         data = json.load(file)
     return data.get("products")
 

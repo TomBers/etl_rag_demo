@@ -14,7 +14,7 @@ pc = Pinecone(
         api_key=os.environ.get("PINECONE_API_KEY")
     )
 
-index_name = "energytechnologylist"
+index_name = "etl"
 
 # Optional
 namespace = None

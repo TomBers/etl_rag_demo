@@ -1,10 +1,11 @@
 import os
 from pinecone import Pinecone
 from openai import OpenAI
+import time
 
 import etl_extract
 
-INDEX_NAME = "energytechnologylist"
+INDEX_NAME = "etl"
 EMBEDDING_MODEL_NAME = "text-embedding-3-small"
 
 client = OpenAI()
@@ -16,10 +17,12 @@ pc = Pinecone(
 index = pc.Index(INDEX_NAME)
 
 def run():
-    products = etl_extract.extract_products()
-    for product in products:
-        product = etl_extract.process_product(product)
-        save_to_index(product)
+    for doc in range(1, 40):
+        time.sleep(2)
+        products = etl_extract.extract_products(doc)
+        for product in products:
+            product = etl_extract.process_product(product)
+            save_to_index(product)
 
 def save_to_index(product):
     id = product["id"]
