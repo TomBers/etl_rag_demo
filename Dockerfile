@@ -18,6 +18,8 @@ COPY ./.chainlit ./.chainlit
 
 COPY ./public ./public
 
+COPY ./chainlit.md ./chainlit.md
+
 # FOR DEPLOYMENT
 # COPY ./.env ./.env
 # Set environment variables
